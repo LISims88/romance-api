@@ -1,13 +1,25 @@
-const express = require('express');
+const express = require("express");
+const knex = require("knex");
+const db = require("./db"); // Ensure this is properly configured to connect to your database
+const PORT = process.env.PORT || 4000;
+
 const app = express();
 
-app.set('port', process.env.PORT || 3000);
-app.locals.title = 'Romance-API';
+app.use(express.json());
 
-app.get('/', (request, response) => {
-  response.send('Romance-API');
+// Root route
+app.get("/", (req, res) => {
+  res.send("Welcome to the Romance-API!");
+});
+app.get("/api/v1/books", async (req, res) => {
+  try {
+    const books = await db("books").select('*');
+    res.json(books);
+  } catch (err) {
+    res.status(500).json({ message: "Error getting books!" });
+  }
 });
 
-app.listen(app.get('port'), () => {
-  console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`);
+app.listen(PORT, () => {
+  console.log(`Romance-API is running on http://localhost:${PORT}`);
 });
