@@ -1,13 +1,13 @@
 const express = require("express");
 const knex = require("knex");
-const db = require("./db"); // Ensure this is properly configured to connect to your database
+const db = require("./db"); 
 const PORT = process.env.PORT || 4000;
-
+const cors = require("cors")
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
-// Root route
 app.get("/", (req, res) => {
   res.send("Welcome to the Romance-API!");
 });
