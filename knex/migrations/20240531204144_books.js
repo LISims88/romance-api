@@ -6,7 +6,7 @@ exports.up = function(knex) {
   return knex.schema.createTable("books", (table) =>{
     table.increments("id");
     table.string("title").notNullable();
-    table.string("imagesrc").notNullable();
+    table.string("imgsrc").notNullable();
     table.specificType("author", "TEXT []").notNullable();
     table.text("summary");
     table.specificType("genres", "TEXT []").notNullable();
