@@ -751,7 +751,7 @@ const data =[
     },
     {
      title: "The Dom's Virgin",
-     imgsrc: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1485620115i/34036981.jpg",
+     imgsrc: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1488981369i/34511546.jpg",
      author: ["Penelope Bloom"],
      summary: "Ever heard of a virgin romance author?\nNow you have. Spoiler alert: it’s as sad as it sounds.\nMy roommate thinks I should do some research to help my writer’s block.\nWhen a billionaire publishing executive rejects my book, she has the perfect idea.\nThe perfectly terrible idea of tricking him into bidding on me through a BDSM site.\n\nI know how it sounds. Crazy. Stupid. Irresponsible. Check, check, check. I couldn’t agree more.\n\nYes, he’s practically dripping with sex appeal. Yes, any woman with a pulse would kill for a “hello” from him. And yes, he looks like he belongs on a movie screen.\n\nBut as far as I’m concerned, he’s just the jerk who rejected my book, and all I care about is getting a chance to tell him off in person. That’s it. Mostly.\n\nThen again, maybe my roommate has a point. A night with him would probably give me enough material to fill half a book.\n\nHe wants more than a night, though. He wants a month. And he wants me to sign a contract saying I’m completely and totally his.\n\nI can sign the contract and basically become the heroine from one of my books, or I can say no and keep on living my normal, boring life. Hmm, tough call…",
      genres: ["Contemporary", "BDSM"],
