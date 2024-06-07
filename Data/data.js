@@ -614,7 +614,7 @@ const data =[
      imgsrc: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1455561557i/29102401.jpg",
      author: ["Marie  James"],
      summary: "I am Emmalyn Mikaelson.\n\nMy husband, in a rage, hit me in front of the wrong person. Diego, or Kincaid to most, beat the hell out of him for it. I left with Diego anyway. Even though he could turn on me just like my husband did, I knew I had a better chance of survival with Diego. That was until I realized Kincaid could hurt me so much worse than my husband ever could. Physical pain pales in comparison to troubles of the heart.\n\nI am Diego “Kincaid” Anderson.\n\nShe was a waitress at a bar in a bad situation. I brought her to my clubhouse because I knew her husband would kill her if I didn’t. Now she has my protection and that of the Cerberus MC. I never expected her to become something more to me. I was in more trouble than I’ve ever been in before, and that’s saying a lot considering I served eight years in the Marine Corp with Special Forces.",
-     genres: ["Contemporary", "Motorcycle", "Military "],
+     genres: ["Contemporary", "Motorcycle", "Military"],
      average_rating: 4.19,
      number_of_pages: 241,
      publication_year: 2016
