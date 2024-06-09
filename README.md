@@ -34,7 +34,7 @@ Start the server
 The server will be running at `localhost:4000`
 
 API Reference
-Get all games
+Get all books
   `GET /api/v1/books`
 
 Author
