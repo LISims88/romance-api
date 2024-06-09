@@ -1,6 +1,6 @@
 const express = require("express");
 const knex = require("knex");
-const db = require("./db"); 
+const db = require("../db"); 
 const PORT = process.env.PORT || 4000;
 const cors = require("cors")
 const app = express();
@@ -23,3 +23,5 @@ app.get("/api/v1/books", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Romance-API is running on http://localhost:${PORT}`);
 });
+
+module.exports = app;
