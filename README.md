@@ -1,5 +1,5 @@
 # Romance API
-This is the backend API server for Love Library application. This project was created as part of a larger project  build a fullstack application. More infomration about this project can be found in the front end repository here 
+This is the backend API server for Love Library application. This project was created as part of a project to build a fullstack application. More infomration about this project can be found in the front end repository here 
 
 https://github.com/LISims88/love-library
 
@@ -34,8 +34,8 @@ Start the server
 The server will be running at `localhost:4000`
 
 API Reference
-Get all books
-  `GET /api/v1/books`
 
-Author
-Lydia Sims - @LISims88
+Get all books
+
+`GET /api/v1/books`
+
