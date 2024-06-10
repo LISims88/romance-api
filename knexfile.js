@@ -8,11 +8,11 @@ module.exports = {
   development: {
     client: "postgresql",
     connection: {
-      host: process.env.PG_HOST || "127.0.0.1",
-      port: process.env.PG_PORT || 5432,
-      database: process.env.PG_DATABASE || "lydiasims",
-      user: process.env.PG_USER || "lydiasims",
-      password: process.env.PG_PASSWORD || "",
+      host: process.env.DB_HOST || "127.0.0.1",
+      port: process.env.DB_PORT || 5432,
+      database: process.env.DB_DATABASE || "lydiasims",
+      user: process.env.DB_USER || "lydiasims",
+      password: process.env.DB_PASSWORD || "",
     },
     pool: {
       min: 2,
