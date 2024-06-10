@@ -2,7 +2,7 @@
   "name": "romance-api",
   "version": "1.0.0",
   "description": "",
-  "main": "api/server.js",
+  "main": "server.js",
   "scripts": {
     "dev": "ENVIRONMENT=development nodemon server.js",
     "start": "nodemon server.js",
