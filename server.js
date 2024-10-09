@@ -4,7 +4,6 @@ const knex = require("./knex/knex.js");
 const cors = require("cors");
 const PORT = process.env.PORT || 4000;
 const app = express();
-const { body, validationResult } = require('express-validator');
 
 app.use(express.json());
 app.use(cors());
@@ -16,7 +15,6 @@ app.get("/", (req, res) => {
 
 // Get all books
 app.get("/api/v1/books", async (req, res) => {
-  console.log("GET /api/v1/books called"); // Log for debugging
   try {
     const books = await knex("books");
     res.json(books);
@@ -50,24 +48,11 @@ app.get("/api/v1/users", async (req, res) => {
 });
 
 // Add a new user
-app.post("/api/v1/users", [
-  body('username').isString().notEmpty(),
-  body('password').isString().isLength({ min: 6 }),
-  body('password_confirm').custom((value, { req }) => {
-    if (value !== req.body.password) {
-      throw new Error("Passwords do not match");
-    }
-    return true;
-  }),
-], async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-
+app.post("/api/v1/users", async (req, res) => {
   try {
+    console.log(req.body); // Log request body for debugging
     const user = await knex("users").insert(req.body).returning("*");
-    res.status(201).json(user);
+    res.json(user);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Error adding user!" });
