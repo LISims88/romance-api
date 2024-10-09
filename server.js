@@ -20,6 +20,45 @@ app.get("/api/v1/books", async (req, res) => {
     res.status(500).json({ message: "Error getting books!" });
   }
 });
+app.post("/api/v1/books", async (req, res) => {
+  try {
+    const book = await knex("books").insert(req.body).returning("*");
+    res.json(book);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ message: "Error adding book!" });
+  }
+}
+);
+app.get("/api/v1/user", async (req, res) => {
+  try {
+    const user = await knex("user");
+    res.json(user);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ message: "Error getting user!" });
+  }
+}
+);
+app.post("/api/v1/users", async (req, res) => {
+  try {
+    const user = await knex("user").insert(req.body).returning("*");
+    res.json(user);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ message: "Error adding user!" });
+  }
+}
+);
+app.delete("/api/v1/users/:id", async (req, res) => {
+  try {
+    const user = await knex("user").where({ id: req.params.id }).del().returning("*");
+    res.json(user);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ message: "Error deleting user!" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Romance-API is running on http://localhost:${PORT}`);
