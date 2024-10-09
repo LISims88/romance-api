@@ -30,9 +30,9 @@ app.post("/api/v1/books", async (req, res) => {
   }
 }
 );
-app.get("/api/v1/user", async (req, res) => {
+app.get("/api/v1/users", async (req, res) => {
   try {
-    const user = await knex("user");
+    const user = await knex("users");
     res.json(user);
   } catch (err) {
     console.log(err)
