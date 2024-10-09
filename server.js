@@ -1,61 +1,86 @@
-require("dotenv").config()
+require("dotenv").config();
 const express = require("express");
 const knex = require("./knex/knex.js");
+const cors = require("cors");
 const PORT = process.env.PORT || 4000;
-const cors = require("cors")
 const app = express();
+const { body, validationResult } = require('express-validator');
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
+// Welcome route
 app.get("/", (req, res) => {
   res.send("Welcome to the Romance-API!");
 });
+
+// Get all books
 app.get("/api/v1/books", async (req, res) => {
+  console.log("GET /api/v1/books called"); // Log for debugging
   try {
     const books = await knex("books");
     res.json(books);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({ message: "Error getting books!" });
   }
 });
+
+// Add a new book
 app.post("/api/v1/books", async (req, res) => {
   try {
+    console.log(req.body); // Log request body for debugging
     const book = await knex("books").insert(req.body).returning("*");
     res.json(book);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({ message: "Error adding book!" });
   }
-}
-);
+});
+
+// Get all users
 app.get("/api/v1/users", async (req, res) => {
   try {
-    const user = await knex("users");
-    res.json(user);
+    const users = await knex("users");
+    res.json(users);
   } catch (err) {
-    console.log(err)
-    res.status(500).json({ message: "Error getting user!" });
+    console.log(err);
+    res.status(500).json({ message: "Error getting users!" });
   }
-}
-);
-app.post("/api/v1/users", async (req, res) => {
+});
+
+// Add a new user
+app.post("/api/v1/users", [
+  body('username').isString().notEmpty(),
+  body('password').isString().isLength({ min: 6 }),
+  body('password_confirm').custom((value, { req }) => {
+    if (value !== req.body.password) {
+      throw new Error("Passwords do not match");
+    }
+    return true;
+  }),
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
-    const user = await knex("user").insert(req.body).returning("*");
-    res.json(user);
+    const user = await knex("users").insert(req.body).returning("*");
+    res.status(201).json(user);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({ message: "Error adding user!" });
   }
-}
-);
+});
+
+// Delete a user by ID
 app.delete("/api/v1/users/:id", async (req, res) => {
   try {
-    const user = await knex("user").where({ id: req.params.id }).del().returning("*");
+    const user = await knex("users").where({ id: req.params.id }).del().returning("*");
     res.json(user);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({ message: "Error deleting user!" });
   }
 });
