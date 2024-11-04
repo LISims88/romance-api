@@ -13,6 +13,15 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Romance-API!");
 });
 
+app.get('/test-db', async (req, res) => {
+  try {
+    const result = await knex.raw('SELECT 1');
+    res.status(200).send('Database connected successfully: ' + JSON.stringify(result));
+  } catch (err) {
+    console.error('Database connection error:', err);
+    res.status(500).send('Database connection failed: ' + err.message);
+  }
+});
 // Get all books
 app.get("/api/v1/books", async (req, res) => {
   try {
