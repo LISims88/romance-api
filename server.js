@@ -6,13 +6,18 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: '*' }));
 
 // Welcome route
 app.get("/", (req, res) => {
   res.send("Welcome to the Romance-API!");
 });
-
+//testing health route
+app.get('/health', (req, res) => {
+  res.send('API is up and running!');
+});
+//testing db route
 app.get('/test-db', async (req, res) => {
   console.log('Accessed /test-db route');
   try {
@@ -22,6 +27,10 @@ app.get('/test-db', async (req, res) => {
     console.error('Database connection error:', err);
     res.status(500).send('Database connection failed: ' + err.message);
   }
+});
+//testing env route
+app.get('/check-env', (req, res) => {
+  res.send(`POSTGRES_URL: ${process.env.POSTGRES_URL}`);
 });
 
 // Get all books

@@ -29,21 +29,10 @@ module.exports = {
   },
   production: {
     client: "pg",
-    connection: {
-      connectionString: process.env.POSTGRES_URL,
-      ssl: { rejectUnauthorized: false },
-    },
+    connection: process.env.POSTGRES_URL,
     pool: {
       min: 2,
       max: 10,
     },
-    migrations: {
-      directory: __dirname + "/knex/migrations",
-      tableName: "knex_migrations",
-    },
-    seeds: {
-      directory: __dirname + "/knex/seeds",
-      tableName: "knex_seeds",
-    },
-  },  
+  },
 };
