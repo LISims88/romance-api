@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/test-db', async (req, res) => {
+  console.log('Accessed /test-db route');
   try {
     const result = await knex.raw('SELECT 1');
     res.status(200).send('Database connected successfully: ' + JSON.stringify(result));
@@ -22,6 +23,7 @@ app.get('/test-db', async (req, res) => {
     res.status(500).send('Database connection failed: ' + err.message);
   }
 });
+
 // Get all books
 app.get("/api/v1/books", async (req, res) => {
   try {
