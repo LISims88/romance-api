@@ -29,7 +29,7 @@ module.exports = {
   },
   production: {
     client: "pg",
-    connection: process.env.POSTGRES_URL,
+    connection: process.env.DB_URL,
     pool: {
       min: 2,
       max: 10,
