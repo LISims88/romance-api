@@ -30,7 +30,7 @@ app.get('/test-db', async (req, res) => {
 });
 //testing env route
 app.get('/check-env', (req, res) => {
-  res.send(`POSTGRES_URL: ${process.env.POSTGRES_URL}`);
+  res.send(`DB_URL: ${process.env.DB_URL}`);
 });
 
 // Get all books
