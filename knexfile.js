@@ -28,19 +28,20 @@ module.exports = {
     },
   },
   production: {
-    client: "pg",
-    connection: process.env.DB_URL,
+  client: "pg",
+    connection: {
+      connectionString: process.env.DB_URL,
+      ssl: { rejectUnauthorized: false },
+    },
     pool: {
-      min: 2,
-      max: 10,
+      min: 0,
+      max: 2, 
     },
     migrations: {
       directory: __dirname + "/knex/migrations",
-      tableName: "knex_migrations",
     },
     seeds: {
       directory: __dirname + "/knex/seeds",
-      tableName: "knex_seeds",
     },
   },
 };
