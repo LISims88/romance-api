@@ -7,8 +7,8 @@
     "dev": "ENVIRONMENT=development nodemon server.js",
     "start": "node server.js",
     "build": "npm install",
-    "migrate": "NODE_ENV=production knex migrate:latest",
-    "seed": "NODE_ENV=production knex seed:run",
+    "migrate": "ENVIRONMENT=production knex migrate:latest",
+    "seed": "ENVIRONMENT=production knex seed:run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
