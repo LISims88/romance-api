@@ -36,11 +36,13 @@ app.get('/check-env', (req, res) => {
 // Get all books
 app.get("/api/v1/books", async (req, res) => {
   try {
+    console.log("GET /api/v1/books - attempting to fetch books...");
     const books = await knex("books");
+    console.log("Books found:", books);
     res.json(books);
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error getting books!" });
+    console.error("Error fetching books:", err);
+    res.status(500).json({ message: "Error getting books!", error: err.message });
   }
 });
 
