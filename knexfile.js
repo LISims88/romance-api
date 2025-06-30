@@ -34,5 +34,13 @@ module.exports = {
       min: 2,
       max: 10,
     },
+    migrations: {
+      directory: __dirname + "/knex/migrations",
+      tableName: "knex_migrations",
+    },
+    seeds: {
+      directory: __dirname + "/knex/seeds",
+      tableName: "knex_seeds",
+    },
   },
 };
