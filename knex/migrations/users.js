@@ -7,6 +7,7 @@ exports.up = function(knex) {
     table.increments("id").primary(); 
     table.string("username").notNullable().unique(); 
     table.string("password").notNullable();
+    table.string("password_confirm").notNullable();
     table.specificType("tbr_list", "TEXT[]").notNullable().defaultTo('{}'); // Set default to an empty array
     table.specificType("read_list", "TEXT[]").notNullable().defaultTo('{}'); // Set default to an empty array
   });
