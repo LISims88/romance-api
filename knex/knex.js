@@ -1,4 +1,9 @@
-require("dotenv").config()
-const environment = process.env.ENVIRONMENT || "development";
-const config = require("../knexfile.js")[environment];
-module.exports = require("knex")(config);
+require('dotenv').config();
+
+const knex = require('knex')({
+  client: 'pg',
+  connection: process.env.DB_URL, 
+  ssl: { rejectUnauthorized: false },
+});
+
+module.exports = knex;
