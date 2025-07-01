@@ -31,7 +31,6 @@ DB_USER
 DB_PASSWORD
 DB_DATABASE
 ```
-This requires the use of `Postico 2`
 
 Migrate the tables.
 
