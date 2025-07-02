@@ -4,7 +4,7 @@ This is the backend API server for Love Library application. This project was cr
 https://github.com/LISims88/love-library
 
 ## 7/1/2025
-Project has been updated to include users and includes a dummy user that isn't connected to anything. The API is currently deployed through Vercel with a Supabase Postgres server, it can still be run locally but requires the use of `Postico 2`
+Project has been updated to include users and includes a fake user that isn't connected to anything. The API is currently deployed through Vercel with a Supabase Postgres server, it can still be run locally but requires the use of `Postico 2`
 
 How to Run Locally
 To run this server, you must have a local deployment of Postgres running.
@@ -24,14 +24,14 @@ Install dependencies
 Configure your .env file. You will require:
 
 ```
-ENVIRONMENT
+ENVIRONMENT=development
 DB_HOST
 DB_PORT
 DB_USER
 DB_PASSWORD
 DB_DATABASE
 ```
-This requires the use of `Postico 2`
+This requires the use of `Postico 2` as to have the required information for the sections of: host, port, user, password, and database. 
 
 Migrate the tables.
 
